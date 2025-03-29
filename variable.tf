@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "us-west-2"
+  default     = "us-east-1"
 }
 
 variable "cluster_name" {
@@ -19,7 +19,7 @@ variable "node_group_name" {
 variable "node_type" {
   description = "Node instance type"
   type        = string
-  default     = "t3.medium"
+  default     = "t2.medium"
 }
 
 variable "node_count" {
