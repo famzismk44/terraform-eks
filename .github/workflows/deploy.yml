@@ -42,30 +42,30 @@ jobs:
     - name: Terraform Init
       id: init
       run: terraform init
-      working-directory: ./terraform
+      working-directory: .
 
     - name: Terraform Format
       id: fmt
       run: terraform fmt -check
-      working-directory: ./terraform
+      working-directory: .
 
     - name: Terraform Plan
       id: plan
       if: github.event.inputs.tf-action == 'plan' || github.event.inputs.tf-action == 'apply'
       run: terraform plan -var="cluster_name=${{ env.CLUSTER_NAME }}" -input=false
-      working-directory: ./terraform
+      working-directory: .
 
     - name: Terraform Apply
       id: apply
       if: github.event.inputs.tf-action == 'apply'
       run: terraform apply -auto-approve -var="cluster_name=${{ env.CLUSTER_NAME }}"
-      working-directory: ./terraform
+      working-directory: .
 
     - name: Terraform Destroy
       id: destroy
       if: github.event.inputs.tf-action == 'destroy'
       run: terraform destroy -auto-approve -var="cluster_name=${{ env.CLUSTER_NAME }}"
-      working-directory: ./terraform
+      working-directory: .
 
     - name: Configure kubectl
       if: github.event.inputs.tf-action == 'apply' && steps.apply.outcome == 'success'
