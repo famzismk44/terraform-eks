@@ -45,6 +45,6 @@ module "vpc" {
 }
 resource "aws_eks_access_entry" "my-access" {
   cluster_name      = var.cluster_name
-  principal_arn     = "arn:aws:iam::984639714947:user/training"
+  principal_arn     = "arn:aws:iam::376129853610:user/zauzau"
   type              = "STANDARD"
 }
